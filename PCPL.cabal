@@ -1,0 +1,36 @@
+Name:               PCPL
+Version:            0.1.0
+Synopsis:           Post Correspondence Programming Language
+Homepage:           https://github.com/davidlazar/PCPL
+License:            MIT
+License-file:       LICENSE
+Author:             David Lazar
+Maintainer:         David Lazar <lazar6@illinois.edu>
+Category:           Language
+Build-type:         Simple
+Cabal-version:      >=1.6
+
+Extra-source-files:
+    README.md
+
+source-repository head
+  Type:             git
+  Location:         https://github.com/davidlazar/PCPL
+
+Library
+  ghc-options:      -Wall
+
+  Hs-source-dirs:   src
+
+  Exposed-modules:
+    Language.PCPL
+    Language.PCPL.Syntax
+    Language.PCPL.Pretty
+    Language.PCPL.Solver
+    Language.PCPL.CompileTM
+
+  Build-depends:
+    base >= 4 && < 5,
+    containers,
+    blaze-html,
+    utm
