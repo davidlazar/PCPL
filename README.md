@@ -2,7 +2,7 @@
 
 The *Post Correspondence Programming Language* is my entry in the [Turing Tarpit PLT Games](http://www.pltgames.com/competition/2012/12).
 
-Please see my writeup: http://davidlazar.org/PCPL.html
+Please see my writeup: http://davidlazar.org/PCPL/
 
 # Contributing
 
