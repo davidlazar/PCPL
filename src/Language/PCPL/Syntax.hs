@@ -8,6 +8,7 @@ module Language.PCPL.Syntax
 
 import Language.UTM.Syntax
 
+-- | PCPL program
 data Program = Program
     { startDomino :: Input -> Domino
     , dominos     :: [Domino]

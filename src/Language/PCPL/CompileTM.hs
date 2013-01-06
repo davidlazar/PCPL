@@ -1,5 +1,6 @@
--- | This module implements the translation from Turing machines to PCP
--- described in Sipser's /Theory of Computation/.
+-- | This module implements the Turing machine to PCP(L) compiler described in
+-- Michael Sipser's textbook /Introduction to the Theory of Computation/,
+-- second edition, section 5.2.
 module Language.PCPL.CompileTM
     ( compileTM
     , compileTM'
@@ -13,9 +14,17 @@ import Language.PCPL.Syntax
 -- | Symbol used to separate TM configurations
 type Seperator = Symbol
 
+-- | Compile a Turing machine into an equivalent PCPL program.
+-- This function assumes that the Turing machine never attempts to move its
+-- head left of the starting position. Any Turing machine can be converted
+-- into one that satisfies this assumption.
 compileTM :: TuringMachine -> Program
 compileTM = compileTM' (Symbol "#")
 
+-- | Like 'compileTM', but can specify a 'Seperator' symbol.
+--
+-- > compileTM = compileTM' (Symbol "#")
+--
 compileTM' :: Seperator -> TuringMachine -> Program
 compileTM' s tm = Program
     { startDomino = part1 s tm

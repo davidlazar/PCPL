@@ -24,7 +24,7 @@ import Language.PCPL.Pretty
 import Language.PCPL.Solver
 import Language.PCPL.CompileTM
 
--- ^ Run a PCPL program on the given input, producing a PCP match.
+-- | Run a PCPL program on the given input, producing a PCP match.
 runProgram :: Program -> Input -> [Domino]
 runProgram pgm w = map (dss !!) indices
   where
@@ -32,9 +32,13 @@ runProgram pgm w = map (dss !!) indices
     Just initialConfig = updateConf (Top []) d
     indices = reverse $ search (zip [1..] ds) [Node [0] initialConfig]
 
+-- | Return the string across the top of a list of Dominos.
+-- Useful after finding a match.
 topString :: [Domino] -> String
 topString ds = concat [ s | Domino xs _ <- ds, Symbol s <- xs]
 
+-- | Turing machine that adds unary numbers.
+-- For example: @1+11@ becomes @111@.
 unaryAdder :: TuringMachine
 unaryAdder = TuringMachine
     { startState = "x"
@@ -52,6 +56,12 @@ unaryAdder = TuringMachine
         ]
     }
 
+
+-- | Turing machine that accepts strings of balanced parentheses.
+-- Note: due to the restrictions described in 'compileTM', the input must
+-- start with a @$@ symbol. For example: the input @$(())()@ is accepted.
+-- This Turing machine is based on:
+-- <http://www2.lns.mit.edu/~dsw/turing/examples/paren.tm>.
 parensMatcher :: TuringMachine
 parensMatcher = TuringMachine
     { startState = "S"
