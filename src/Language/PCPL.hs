@@ -57,7 +57,7 @@ parensMatcher = TuringMachine
     { startState = "S"
     , acceptState = "Y"
     , rejectState = "N"
-    , blankSymbol = " "
+    , blankSymbol = "_"
     , inputAlphabet = syms "$()A"
     , transitionFunction = Map.fromList
         [ (("S", "$"), ("0", "$", R))
@@ -65,7 +65,7 @@ parensMatcher = TuringMachine
         , (("0", "("), ("0", "(", R))
         , (("0", ")"), ("1", "A", L))
         , (("0", "A"), ("0", "A", R))
-        , (("0", " "), ("2", " ", L))
+        , (("0", "_"), ("2", "_", L))
         , (("1", "("), ("0", "A", R))
         , (("1", "A"), ("1", "A", L))
         --, (("1", "$"), ("N", "$", R))
