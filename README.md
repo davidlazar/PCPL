@@ -12,7 +12,7 @@ If you have any questions or comments, please email me: `(\x -> x@illinois.edu) 
 ### Rate it
 
 Please [rate this entry](http://www.pltgames.com/rate/davidlazar/PCPL) for innovation, completeness, and theme application.
-You'll need to sign in with you Github account.
+You'll need to sign in with your Github account.
 
 ### Contributing
 
